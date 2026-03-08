@@ -1,0 +1,25 @@
+<div class="gorunum-baslik-alani">
+  <button id="btn-geri-don" class="ikon-btn" onclick="anaSayfayaDon()">⬅ Geri</button>
+  <h2>Devamsızlık Takibi</h2>
+</div>
+
+<div class="kart-govdesi">
+  <div class="girdi-grubu">
+    <label for="dev-ders-adi">Dersin Adı</label>
+    <input type="text" id="dev-ders-adi" placeholder="Örn: Algoritma ve Programlama" />
+  </div>
+
+  <div class="girdi-grubu">
+    <label for="dev-sinir">Maksimum Devamsızlık Hakkı (Hafta/Sefer)</label>
+    <input type="number" id="dev-sinir" placeholder="Örn: 4" min="1" value="4" />
+  </div>
+
+  <button id="btn-dev-ekle" class="ana-btn">Dersi Listeye Ekle</button>
+</div>
+
+<div class="kayitli-dersler-alani">
+  <h3 style="margin-bottom: 10px; font-size: 1.1rem">Takip Edilen Dersler</h3>
+  <div id="dev-listesi" class="ders-listesi">
+    <p class="soluk-metin" style="font-size: 0.9rem">Henüz takip edilen bir ders yok.</p>
+  </div>
+</div>
