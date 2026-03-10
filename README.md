@@ -1,19 +1,34 @@
-# 🦸‍♂️ UniMan 
+# 🎓 UniMan - University Student Assistant (v1.1 Beta)
 
-UniMan is an offline mobile campus assistant developed with a "Single Page Application" (SPA) architecture, designed to help university students set their midterm/final goals and seamlessly track their attendance rights.
+A modern, clean, and entirely student-focused web application. It allows university students to easily track their target grades, attendance limits, and semester GPA (CGPA) all from a single screen with an elegant "Clean UI" design.
 
-## 🚀 Features
-* **Target Final Calculator:** Instantly calculates the required final exam grade to pass a course based on midterm and extra activity scores, utilizing a dynamic mathematical color algorithm (Green/Yellow/Red).
-* **Attendance Tracker:** Monitors absence limits and remaining rights for courses using a smart counter system. It provides visual alerts as the user approaches the absence limit.
-* **Local Storage:** All registered courses and calculations are safely saved in the device's local memory, meaning data is never lost even when the app is completely closed.
-* **SPA Architecture:** Lightning-fast and smooth transitions between modules without any page reloads, providing a native mobile app experience.
+## ✨ Features
 
-## 🛠️ Technologies Used
-* **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+)
-* **Architecture:** Single Page Application (SPA)
-* **Packaging / Build:** Capacitor (Android APK)
+- **📱 Modern UI & Slider Architecture:** Designed with Apple iOS standards, featuring a horizontal scroll (swipeable) giant card layout and smooth dot indicators.
+- **🧮 Target Grade Calculator:** Instantly calculates the exact score you need on your final exam to pass the course or reach your target grade, based on your midterm and extra assignment scores.
+- **📅 Attendance Tracker:** Keeps track of your remaining attendance rights and warns you with color codes (Green/Orange/Red) before you reach the critical limit.
+- **🎓 GPA (CGPA) Calculator:** Calculates your exact semester GPA out of 4.00 based on course credits (ECTS) and letter grades (AA, BA, etc.), helping you map out your academic goals.
+- **💾 Data Security (Offline Ready):** All data is securely stored in the browser's `LocalStorage`. It works seamlessly without an internet connection, ensuring your data is never lost.
 
-## 📱 Installation & Usage
-This project is built with web technologies and can be run directly in any web browser. Furthermore, it has been compiled into a native Android APK using Capacitor for mobile use.
+## 🛠️ Tech Stack
 
-*Developer: Kerem Akdoğan*
+- **HTML5** (Semantic structure and SPA architecture)
+- **CSS3** (Soft UI, Flexbox, Scroll-Snap, Custom Animations)
+- **Vanilla JavaScript** (DOM Manipulation, LocalStorage Management)
+
+## 🚀 Installation and Usage
+
+This project does not require any server or database setup. It runs directly in the browser.
+
+1. Download or clone the repository to your local machine:
+   ```bash
+   git clone [https://github.com/KeremAKDOGAN81/UniMan.git](https://github.com/KeremAKDOGAN81/UniMan.git)
+   ```
+2. Open the `index.html` file in any modern web browser.
+3. **Pro Tip for Mobile Users:** Open the app in your mobile browser and select **"Add to Home Screen"** from the menu. It will behave exactly like a native mobile app (PWA experience).
+
+## 👨‍💻 Developer
+
+**Kerem Akdoğan** - _Computer Programming Student_
+
+_(This project is actively developed to provide practical software solutions for daily student needs.)_

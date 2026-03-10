@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
@@ -10,39 +10,40 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="uygulama-ust-bilgi">
-      <div class="header-icerik">
-        <div class="baslik-alani">
-          <h1>UniMan</h1>
-        </div>
-        <img
-          src="assets/Gemini_Generated_Image_l8qq3il8qq3il8qq-Photoroom.png"
-          alt="UniMan Logo"
-          class="uniman-logo"
-        />
-      </div>
-    </header>
-
     <main id="uygulama-tasiyici" class="tasiyici">
       <section id="gorunum-ana-sayfa" class="gorunum-bolumu">
         <h2 class="bolum-basligi">Nasıl Yardımcı Olabilirim?</h2>
-        <div class="izgara-menu">
+
+        <div class="izgara-menu" id="ana-slider">
           <div class="menu-karti" onclick="modulYukle('not-hesaplayici')">
             <div class="kart-ikonu">🧮</div>
-            <h3>Not Hesaplayıcı</h3>
-            <p>Vize/Final hedefini belirle</p>
+            <h3>Vize/Final</h3>
+            <p>Dersi geçmek veya hedefine ulaşmak için finalden kaç alman gerektiğini anında hesapla.</p>
           </div>
+
           <div class="menu-karti" onclick="modulYukle('devamsizlik')">
             <div class="kart-ikonu">📅</div>
             <h3>Devamsızlık</h3>
-            <p>Haftalık haklarını takip et</p>
+            <p>Hangi derste kaç devamsızlık hakkın kaldı? Kritik sınıra yaklaşmadan takipte kal.</p>
           </div>
+
+          <div class="menu-karti" onclick="modulYukle('agno')">
+            <div class="kart-ikonu">🎓</div>
+            <h3>Ortalama</h3>
+            <p>Dönem sonu ortalamanı (AGNO) 4.00 üzerinden hesapla ve hedefine giden yolu çiz.</p>
+          </div>
+        </div>
+
+        <div class="slider-noktalar">
+          <div class="nokta aktif"></div>
+          <div class="nokta"></div>
+          <div class="nokta"></div>
         </div>
       </section>
 
       <section id="modul-not-hesaplayici" class="gorunum-bolumu gizli">
         <div class="gorunum-baslik-alani">
-          <button class="ikon-btn" onclick="anaSayfayaDon()">⬅ Geri</button>
+          <button class="ikon-btn" onclick="anaSayfayaDon()">Geri</button>
           <h2>Not Hesaplayıcı</h2>
         </div>
         <div class="kart-govdesi">
@@ -54,16 +55,7 @@
             <label for="gecme-notu">Dersi Geçme Notu</label>
             <input type="number" id="gecme-notu" placeholder="Örn: 60" min="0" max="100" value="60" />
           </div>
-          <div class="izgara-menu" style="margin-top: 0; margin-bottom: 15px; gap: 10px">
-            <div class="girdi-grubu" style="margin-bottom: 0">
-              <label for="vize-notu">Vize Notun</label>
-              <input type="number" id="vize-notu" placeholder="Not" min="0" max="100" />
-            </div>
-            <div class="girdi-grubu" style="margin-bottom: 0">
-              <label for="vize-yuzdesi">Yüzdelik Etkisi (%)</label>
-              <input type="number" id="vize-yuzdesi" placeholder="Örn: 40" min="0" max="100" />
-            </div>
-          </div>
+
           <div id="etkinlikler-kapsayici">
             <div
               class="etkinlik-satiri"
@@ -73,45 +65,41 @@
                 type="button"
                 id="btn-etkinlik-ekle"
                 style="
-                  background-color: var(--vurgu-rengi);
-                  color: #000;
+                  background-color: var(--primary-blue);
+                  color: #fff;
                   border: none;
-                  border-radius: 8px;
-                  width: 42px;
-                  height: 42px;
+                  border-radius: 12px;
+                  width: 45px;
+                  height: 45px;
                   font-size: 1.5rem;
                   font-weight: bold;
                   cursor: pointer;
-                  flex-shrink: 0;
-                  margin-bottom: 2px;
                 "
               >
                 +
               </button>
-              <div class="girdi-grubu" style="margin-bottom: 0; flex: 1">
-                <label>Yıl İçi Etkinlik Notu</label>
-                <input type="number" class="etkinlik-notu" placeholder="Not" min="0" max="100" />
+              <div class="girdi-grubu" style="flex: 1">
+                <label>Vize Notun</label>
+                <input type="number" id="vize-notu" placeholder="Not" min="0" max="100" />
               </div>
-              <div class="girdi-grubu" style="margin-bottom: 0; flex: 1">
+              <div class="girdi-grubu" style="flex: 1">
                 <label>Yüzdesi (%)</label>
-                <input type="number" class="etkinlik-yuzdesi" placeholder="Örn: 10" min="0" max="100" />
+                <input type="number" id="vize-yuzdesi" placeholder="Örn: 40" min="0" max="100" />
               </div>
             </div>
           </div>
-          <button id="btn-hesapla" class="ana-btn">Hedef Finali Hesapla</button>
+          <button id="btn-hesapla" class="ana-btn">Hesapla</button>
         </div>
         <div id="sonuc-alani" class="sonuc-kutusu gizli"></div>
         <div class="kayitli-dersler-alani">
-          <h3 style="margin-bottom: 10px; font-size: 1.1rem">Kaydedilen Dersler</h3>
-          <div id="ders-listesi" class="ders-listesi">
-            <p class="soluk-metin" style="font-size: 0.9rem">Henüz kaydedilmiş bir ders yok.</p>
-          </div>
+          <h3>Kaydedilen Dersler</h3>
+          <div id="ders-listesi" class="ders-listesi"></div>
         </div>
       </section>
 
       <section id="modul-devamsizlik" class="gorunum-bolumu gizli">
         <div class="gorunum-baslik-alani">
-          <button class="ikon-btn" onclick="anaSayfayaDon()">⬅ Geri</button>
+          <button class="ikon-btn" onclick="anaSayfayaDon()">Geri</button>
           <h2>Devamsızlık Takibi</h2>
         </div>
         <div class="kart-govdesi">
@@ -120,18 +108,77 @@
             <input type="text" id="dev-ders-adi" placeholder="Örn: Algoritma" />
           </div>
           <div class="girdi-grubu">
-            <label for="dev-sinir">Maksimum Devamsızlık Hakkı</label>
+            <label for="dev-sinir">Maksimum Hak</label>
             <input type="number" id="dev-sinir" placeholder="Örn: 4" min="1" value="4" />
           </div>
-          <button id="btn-dev-ekle" class="ana-btn">Dersi Listeye Ekle</button>
+          <button id="btn-dev-ekle" class="ana-btn">Ekle</button>
         </div>
         <div class="kayitli-dersler-alani">
-          <h3 style="margin-bottom: 10px; font-size: 1.1rem">Takip Edilen Dersler</h3>
-          <div id="dev-listesi" class="ders-listesi">
-            <p class="soluk-metin" style="font-size: 0.9rem">Henüz takip edilen bir ders yok.</p>
-          </div>
+          <h3>Takip Edilen Dersler</h3>
+          <div id="dev-listesi" class="ders-listesi"></div>
         </div>
       </section>
+
+      <section id="modul-agno" class="gorunum-bolumu gizli">
+        <div class="gorunum-baslik-alani">
+          <button class="ikon-btn" onclick="anaSayfayaDon()">Geri</button>
+          <h2>Dönem Ortalaması</h2>
+        </div>
+        <div class="kart-govdesi">
+          <div class="girdi-grubu">
+            <label for="agno-ders-adi">Dersin Adı</label>
+            <input type="text" id="agno-ders-adi" placeholder="Örn: İnternet Prog." />
+          </div>
+          <div style="display: flex; gap: 15px">
+            <div class="girdi-grubu" style="flex: 1">
+              <label for="agno-kredi">Kredi (AKTS)</label>
+              <input type="number" id="agno-kredi" placeholder="Örn: 4" />
+            </div>
+            <div class="girdi-grubu" style="flex: 1">
+              <label for="agno-harf">Harf Notu</label>
+              <select id="agno-harf" class="ozel-secim">
+                <option value="4.0">AA (4.0)</option>
+                <option value="3.5">BA (3.5)</option>
+                <option value="3.0">BB (3.0)</option>
+                <option value="2.5">CB (2.5)</option>
+                <option value="2.0">CC (2.0)</option>
+                <option value="1.5">DC (1.5)</option>
+                <option value="1.0">DD (1.0)</option>
+                <option value="0.0">FF (0.0)</option>
+              </select>
+            </div>
+          </div>
+          <button id="btn-agno-ekle" class="ana-btn">Ekle</button>
+        </div>
+        <div
+          class="sonuc-kutusu"
+          style="text-align: center; border-left: none; background: var(--primary-gradient); color: white"
+        >
+          <p style="font-size: 0.9rem; opacity: 0.9">Güncel AGNO</p>
+          <p style="font-size: 0.9rem; opacity: 0.9">(Ağırlıklı Genel Not Ortalaması)</p>
+          <h2 id="agno-genel-sonuc" style="font-size: 3rem; font-weight: 900">0.00</h2>
+        </div>
+        <div class="kayitli-dersler-alani">
+          <h3>Dönem Dersleri</h3>
+          <div id="agno-listesi" class="ders-listesi"></div>
+        </div>
+      </section>
+
+      <div id="dev-popup" class="dev-popup">
+        <div class="popup-icerik">
+          <span class="popup-kapat" onclick="kapatPopup()">×</span>
+          <p>🚀 <strong>UniMan Beta v1.2</strong></p>
+          <p>
+            Bu uygulama hâlâ geliştirilmektedir. Önerileriniz için lütfen
+            <span style="color: var(--primary-blue)">geri bildirim </span>yapınız.
+          </p>
+          <button onclick="geriBildirimGonder()" class="feedback-btn">Geri Bildirim Yap ✍️</button>
+          <hr style="margin: 8px 0; border: 0; border-top: 1px solid #e2e8f0" />
+          <p style="font-size: 0.75rem; color: var(--primary-blue); font-weight: 800; text-align: center">
+            Geliştirici: Kerem Akdoğan
+          </p>
+        </div>
+      </div>
     </main>
     <script src="app.js"></script>
   </body>
