@@ -1,6 +1,6 @@
 # 🚀 UniMan - The Ultimate University Management App (v1.2 Beta)
 
-![Version](https://img.shields.io/badge/version-v1.3_Beta-blue.svg)
+![Version](https://img.shields.io/badge/version-v1.2_Beta-blue.svg)
 ![Vanilla JS](https://img.shields.io/badge/JavaScript-Vanilla-yellow)
 ![UI/UX](https://img.shields.io/badge/UI%2FUX-Premium-success)
 
