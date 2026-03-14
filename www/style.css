@@ -442,3 +442,133 @@ body {
   background-color: var(--primary-blue); /* Ana mavi rengimiz */
   border-radius: 10px;
 }
+/* ⏱️ POMODORO MODÜLÜ */
+.pomodoro-daire {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+  border: 4px solid #fff;
+}
+
+.pomodoro-daire h1 {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+/* 🍅 POMODORO BİLGİ KUTUSU */
+.pomodoro-bilgi-kutusu {
+  margin-top: 30px;
+  background-color: #f8fafc; /* Çok hafif, göz yormayan bir gri/mavi */
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Zarif bir gölge */
+}
+
+.pomodoro-bilgi-kutusu h4 {
+  color: var(--primary-blue);
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.pomodoro-bilgi-kutusu h4:not(:first-child) {
+  margin-top: 15px; /* İkinci başlığın üstüne biraz boşluk */
+}
+
+.pomodoro-bilgi-kutusu p {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.pomodoro-bilgi-kutusu ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.pomodoro-bilgi-kutusu li {
+  margin-bottom: 5px;
+}
+/* 📊 DEVAMSIZLIK PROGRESS BAR (İLERLEME ÇUBUĞU) */
+.dev-progress-container {
+  width: 100%;
+  height: 8px; /* Çubuğun kalınlığı */
+  background-color: #e2e8f0; /* Boş kısmın rengi (Açık gri) */
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.dev-progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease, background-color 0.5s ease; /* Dolarken yumuşak geçiş efekti */
+}
+
+/* Dinamik Renk Sınıfları */
+.pb-green {
+  background-color: #22c55e;
+} /* %0 - %50 arası: Güvenli */
+.pb-orange {
+  background-color: #f59e0b;
+} /* %50 - %80 arası: Dikkat */
+.pb-red {
+  background-color: #ef4444;
+} /* %80 ve üzeri: Tehlike! */
+
+/* ⏱️ POMODORO YUVARLAK ÇEMBER STİLLERİ */
+.pomodoro-yuvarlak-kapsayici {
+  position: relative;
+  width: 220px; /* Çemberin büyüklüğünü kendi tasarımına göre buradan küçültüp büyütebilirsin */
+  height: 220px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pomodoro-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* Çemberin tepe noktasından (saat 12 yönü) başlaması için çeviriyoruz */
+}
+
+.pomodoro-arka-cember {
+  fill: none;
+  stroke: #f1f5f9; /* Alttaki boş gri yol */
+  stroke-width: 6;
+}
+
+.pomodoro-ilerleme-cemberi {
+  fill: none;
+  stroke: var(--primary-blue, #2563eb); /* Dolu kısmın rengi (Senin mavi) */
+  stroke-width: 6;
+  stroke-linecap: round; /* Çizginin uçlarını yumuşatır */
+  stroke-dasharray: 283; /* Çemberin matematiksel çevresi (2 * pi * r) */
+  stroke-dashoffset: 0; /* Başlangıçta tam dolu */
+  transition: stroke-dashoffset 1s linear; /* Saniye saniye erimesini sağlayan animasyon */
+}
+
+.pomodoro-metin {
+  position: relative;
+  z-index: 1;
+}

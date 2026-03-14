@@ -32,10 +32,16 @@
             <h3>Ortalama</h3>
             <p>Dönem sonu ortalamanı (AGNO) 4.00 üzerinden hesapla ve hedefine giden yolu çiz.</p>
           </div>
+          <div class="menu-karti" onclick="modulYukle('pomodoro')">
+            <div class="kart-ikonu">⏱️</div>
+            <h3>Odak (Pomodoro)</h3>
+            <p>25 dakikalık seanslarla ders çalışırken verimliliğini zirveye taşı ve dikkatini topla.</p>
+          </div>
         </div>
 
         <div class="slider-noktalar">
           <div class="nokta aktif"></div>
+          <div class="nokta"></div>
           <div class="nokta"></div>
           <div class="nokta"></div>
         </div>
@@ -164,10 +170,71 @@
         </div>
       </section>
 
+      <section id="modul-pomodoro" class="gorunum-bolumu gizli">
+        <div class="gorunum-baslik-alani">
+          <button class="ikon-btn" onclick="anaSayfayaDon()">⬅ Geri</button>
+          <h2>Odak Sayacı</h2>
+        </div>
+        <div
+          class="kart-govdesi"
+          style="text-align: center; border: 1px solid #1e293b; border-radius: 32px; padding: 40px 20px"
+        >
+          <div class="pomodoro-yuvarlak-kapsayici">
+            <svg class="pomodoro-svg" viewBox="0 0 100 100">
+              <circle class="pomodoro-arka-cember" cx="50" cy="50" r="45"></circle>
+              <circle class="pomodoro-ilerleme-cemberi" id="pomo-cember" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="pomodoro-metin">
+              <h1 id="zaman-gostergesi" style="margin: 0; font-size: 3rem">25:00</h1>
+              <p id="pomodoro-durum" style="opacity: 0.9; margin-top: -5px; font-weight: bold">
+                Çalışma Zamanı
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; justify-content: center; margin-top: 30px">
+            <button id="btn-pomo-baslat" class="ana-btn" style="flex: 1" onclick="pomodoroBaslat()">
+              Başlat
+            </button>
+            <button
+              id="btn-pomo-duraklat"
+              class="ana-btn"
+              style="flex: 1; background: #64748b"
+              onclick="pomodoroDuraklat()"
+            >
+              Duraklat
+            </button>
+            <button
+              id="btn-pomo-sifirla"
+              class="ana-btn"
+              style="flex: 1; background: #ef4444"
+              onclick="pomodoroSifirla()"
+            >
+              Sıfırla
+            </button>
+          </div>
+        </div>
+
+        <div class="pomodoro-bilgi-kutusu" style="margin-top: 30px">
+          <h4>🍅 Pomodoro Nedir?</h4>
+          <p>
+            <strong>25 dakika</strong> pür dikkat çalışma ve <strong>5 dakika</strong> mola döngüsüne dayanan
+            bilimsel bir zaman yönetimidir.
+          </p>
+
+          <h4>🚀 Ne İşe Yarar?</h4>
+          <ul>
+            <li>Başlama korkusunu yenip ertelemeyi bitirir.</li>
+            <li>Düzenli molalarla zihin yorgunluğunu engeller.</li>
+            <li>Maksimum odaklanma ile verimliliği zirveye taşır.</li>
+          </ul>
+        </div>
+      </section>
+
       <div id="dev-popup" class="dev-popup">
         <div class="popup-icerik">
           <span class="popup-kapat" onclick="kapatPopup()">×</span>
-          <p>🚀 <strong>UniMan Beta v1.2</strong></p>
+          <p>🚀 <strong>UniMan Beta v1.3</strong></p>
           <p>
             Bu uygulama hâlâ geliştirilmektedir. Önerileriniz için lütfen
             <span style="color: var(--primary-blue)">geri bildirim </span>yapınız.
