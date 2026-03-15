@@ -37,6 +37,11 @@
             <h3>Odak (Pomodoro)</h3>
             <p>25 dakikalık seanslarla ders çalışırken verimliliğini zirveye taşı ve dikkatini topla.</p>
           </div>
+          <div class="menu-karti" onclick="modulYukle('notlar')">
+            <div class="kart-ikonu">📝</div>
+            <h3>Notlarım</h3>
+            <p>Ders notlarını, fikirlerini ve önemli tüyoları hızlıca kaydet.</p>
+          </div>
         </div>
 
         <div class="slider-noktalar">
@@ -44,6 +49,299 @@
           <div class="nokta"></div>
           <div class="nokta"></div>
           <div class="nokta"></div>
+          <div class="nokta"></div>
+        </div>
+
+        <div class="haftalik-program-alani" style="margin-top: 40px; margin-bottom: 20px">
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px"
+          >
+            <h2 style="font-size: 1.3rem; color: #0f172a; margin: 0; font-weight: 800">🗓️ Ders Programı</h2>
+            <button
+              onclick="yeniDersFormuAc()"
+              style="
+                background: var(--primary-blue, #2563eb);
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 12px;
+                font-weight: bold;
+                cursor: pointer;
+                font-size: 0.85rem;
+                box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+              "
+            >
+              + Yeni Ekle
+            </button>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              gap: 10px;
+              overflow-x: auto;
+              padding-bottom: 15px;
+              margin-bottom: 5px;
+              scrollbar-width: none;
+            "
+          >
+            <button
+              class="gun-btn"
+              onclick="gunSec('Pazartesi')"
+              style="
+                flex-shrink: 0;
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-weight: bold;
+                cursor: pointer;
+              "
+            >
+              Pazartesi
+            </button>
+            <button
+              class="gun-btn"
+              onclick="gunSec('Salı')"
+              style="
+                flex-shrink: 0;
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-weight: bold;
+                cursor: pointer;
+              "
+            >
+              Salı
+            </button>
+            <button
+              class="gun-btn"
+              onclick="gunSec('Çarşamba')"
+              style="
+                flex-shrink: 0;
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-weight: bold;
+                cursor: pointer;
+              "
+            >
+              Çarşamba
+            </button>
+            <button
+              class="gun-btn"
+              onclick="gunSec('Perşembe')"
+              style="
+                flex-shrink: 0;
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-weight: bold;
+                cursor: pointer;
+              "
+            >
+              Perşembe
+            </button>
+            <button
+              class="gun-btn"
+              onclick="gunSec('Cuma')"
+              style="
+                flex-shrink: 0;
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-weight: bold;
+                cursor: pointer;
+              "
+            >
+              Cuma
+            </button>
+          </div>
+
+          <div id="program-listesi" class="ders-listesi"></div>
+        </div>
+        <div
+          class="proje-takvimi-alani"
+          style="margin-top: 40px; margin-bottom: 20px; padding-top: 20px; border-top: 1px dashed #cbd5e1"
+        >
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px"
+          >
+            <h2 style="font-size: 1.3rem; color: #0f172a; margin: 0; font-weight: 800">
+              📌 Takvim & Görevler
+            </h2>
+            <div style="display: flex; align-items: center; gap: 15px">
+              <button
+                onclick="ayDegistir(-1)"
+                style="
+                  border: none;
+                  background: #f1f5f9;
+                  border-radius: 8px;
+                  padding: 5px 10px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                  color: #64748b;
+                  font-weight: bold;
+                "
+              >
+                ◀
+              </button>
+              <div
+                id="takvim-ay-yil"
+                style="
+                  font-weight: 800;
+                  color: var(--primary-blue, #2563eb);
+                  min-width: 100px;
+                  text-align: center;
+                  font-size: 1.1rem;
+                "
+              >
+                Nisan 2026
+              </div>
+              <button
+                onclick="ayDegistir(1)"
+                style="
+                  border: none;
+                  background: #f1f5f9;
+                  border-radius: 8px;
+                  padding: 5px 10px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                  color: #64748b;
+                  font-weight: bold;
+                "
+              >
+                ▶
+              </button>
+            </div>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(7, 1fr);
+              gap: 5px;
+              text-align: center;
+              font-size: 0.85rem;
+              font-weight: 800;
+              color: #94a3b8;
+              margin-bottom: 10px;
+            "
+          >
+            <div>Pzt</div>
+            <div>Sal</div>
+            <div>Çar</div>
+            <div>Per</div>
+            <div>Cum</div>
+            <div>Cmt</div>
+            <div>Paz</div>
+          </div>
+
+          <div
+            id="takvim-izgarasi"
+            style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px"
+          ></div>
+        </div>
+
+        <div id="gorev-popup" class="dev-popup" style="display: none; z-index: 1000">
+          <div class="popup-icerik" style="text-align: left; padding: 25px; border-radius: 24px">
+            <span
+              class="popup-kapat"
+              onclick="kapatGorevPopup()"
+              style="font-size: 1.5rem; top: 15px; right: 20px"
+              >×</span
+            >
+            <h3
+              id="gorev-popup-baslik"
+              style="
+                margin-top: 0;
+                margin-bottom: 15px;
+                color: #0f172a;
+                border-bottom: 2px solid #f1f5f9;
+                padding-bottom: 10px;
+              "
+            >
+              Görevler
+            </h3>
+
+            <div
+              id="popup-gorev-listesi"
+              style="
+                max-height: 250px;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-bottom: 15px;
+              "
+            ></div>
+
+            <button
+              id="btn-yeni-gorev-ac"
+              onclick="yeniGorevFormuGoster()"
+              style="
+                width: 100%;
+                padding: 12px;
+                border-radius: 12px;
+                background: #f8fafc;
+                border: 1px dashed #cbd5e1;
+                color: var(--primary-blue, #2563eb);
+                font-weight: bold;
+                cursor: pointer;
+                text-align: center;
+                transition: all 0.2s;
+              "
+            >
+              + Yeni Etkinlik Ekle
+            </button>
+
+            <div
+              id="yeni-gorev-formu"
+              style="display: none; margin-top: 10px; gap: 10px; flex-direction: column"
+            >
+              <input
+                type="text"
+                id="yeni-gorev-metni"
+                placeholder="Örn: C++ Proje Teslimi"
+                style="
+                  width: 100%;
+                  padding: 12px;
+                  border-radius: 12px;
+                  border: 1px solid #e2e8f0;
+                  background: #ffffff;
+                  outline: none;
+                  box-sizing: border-box;
+                  font-family: inherit;
+                "
+              />
+              <div style="display: flex; gap: 10px">
+                <button
+                  onclick="takvimGorevEkle()"
+                  style="
+                    flex: 1;
+                    background: var(--primary-blue, #2563eb);
+                    color: white;
+                    border: none;
+                    padding: 12px;
+                    border-radius: 12px;
+                    font-weight: bold;
+                    cursor: pointer;
+                  "
+                >
+                  Kaydet
+                </button>
+                <button
+                  onclick="yeniGorevFormuGizle()"
+                  style="
+                    flex: 1;
+                    background: #fef2f2;
+                    color: #ef4444;
+                    border: none;
+                    padding: 12px;
+                    border-radius: 12px;
+                    font-weight: bold;
+                    cursor: pointer;
+                  "
+                >
+                  İptal
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -172,7 +470,7 @@
 
       <section id="modul-pomodoro" class="gorunum-bolumu gizli">
         <div class="gorunum-baslik-alani">
-          <button class="ikon-btn" onclick="anaSayfayaDon()">⬅ Geri</button>
+          <button class="ikon-btn" onclick="anaSayfayaDon()">Geri</button>
           <h2>Odak Sayacı</h2>
         </div>
         <div
@@ -221,13 +519,280 @@
             <strong>25 dakika</strong> pür dikkat çalışma ve <strong>5 dakika</strong> mola döngüsüne dayanan
             bilimsel bir zaman yönetimidir.
           </p>
-
           <h4>🚀 Ne İşe Yarar?</h4>
           <ul>
             <li>Başlama korkusunu yenip ertelemeyi bitirir.</li>
             <li>Düzenli molalarla zihin yorgunluğunu engeller.</li>
             <li>Maksimum odaklanma ile verimliliği zirveye taşır.</li>
           </ul>
+        </div>
+      </section>
+      <section id="modul-notlar" class="gorunum-bolumu gizli">
+        <div id="notlar-liste-gorunumu">
+          <div class="gorunum-baslik-alani">
+            <button class="ikon-btn" onclick="anaSayfayaDon()">⬅ Geri</button>
+            <h2>Notlarım</h2>
+          </div>
+
+          <div
+            id="notlar-ice-aktar-uyari"
+            style="
+              display: none;
+              background: #eff6ff;
+              border: 1px solid #bfdbfe;
+              border-radius: 16px;
+              padding: 15px;
+              margin-bottom: 20px;
+              text-align: center;
+            "
+          >
+            <p style="margin: 0 0 10px 0; color: #1e3a8a; font-weight: 600; font-size: 0.95rem">
+              Ders programındaki dersleri not başlığı olarak eklemek ister misin?
+            </p>
+            <div style="display: flex; gap: 10px; justify-content: center">
+              <button
+                onclick="dersleriNotOlarakEkle()"
+                style="
+                  background: var(--primary-blue, #2563eb);
+                  color: white;
+                  border: none;
+                  padding: 8px 16px;
+                  border-radius: 8px;
+                  font-weight: bold;
+                  cursor: pointer;
+                  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+                "
+              >
+                Evet, Ekle
+              </button>
+              <button
+                onclick="iceAktarmaUyarisiniKapat()"
+                style="
+                  background: white;
+                  color: #64748b;
+                  border: 1px solid #cbd5e1;
+                  padding: 8px 16px;
+                  border-radius: 8px;
+                  font-weight: bold;
+                  cursor: pointer;
+                "
+              >
+                Hayır
+              </button>
+            </div>
+          </div>
+
+          <button onclick="yeniNotEkraniAc()" class="ana-btn" style="width: 100%; margin-bottom: 20px">
+            + Yeni Not Oluştur
+          </button>
+
+          <div class="kayitli-dersler-alani">
+            <div id="not-klasor-listesi" class="ders-listesi"></div>
+          </div>
+        </div>
+
+        <div id="notlar-duzenleyici-gorunumu" style="display: none">
+          <div class="gorunum-baslik-alani">
+            <button class="ikon-btn" onclick="notListesineDon()">⬅ İptal</button>
+            <h2 id="duzenleyici-baslik" style="font-size: 1.2rem">Not Düzenle</h2>
+            <button
+              class="ikon-btn"
+              onclick="notuKaydetVeDon()"
+              style="color: var(--primary-blue, #2563eb); font-weight: 900; font-size: 1rem"
+            >
+              Kaydet
+            </button>
+          </div>
+
+          <div
+            class="kart-govdesi"
+            style="
+              padding: 20px;
+              border: 1px solid #1e293b;
+              border-radius: 24px;
+              display: flex;
+              flex-direction: column;
+              gap: 15px;
+            "
+          >
+            <input type="hidden" id="aktif-not-id" value="" />
+
+            <div class="girdi-grubu" style="margin-bottom: 0">
+              <input
+                type="text"
+                id="aktif-not-baslik"
+                placeholder="Başlık (Örn: Veri Yapıları)"
+                style="
+                  font-weight: 900;
+                  font-size: 1.2rem;
+                  width: 100%;
+                  padding: 12px;
+                  border-radius: 12px;
+                  border: 1px solid #e2e8f0;
+                  background: #f8fafc;
+                  outline: none;
+                  box-sizing: border-box;
+                  color: #0f172a;
+                "
+              />
+            </div>
+
+            <div class="girdi-grubu" style="margin-bottom: 0">
+              <textarea
+                id="aktif-not-icerik"
+                placeholder="Hoca bugün ne anlattı? Buraya yaz..."
+                style="
+                  width: 100%;
+                  min-height: 200px;
+                  padding: 12px;
+                  border-radius: 12px;
+                  border: 1px solid #e2e8f0;
+                  background: #f8fafc;
+                  outline: none;
+                  resize: vertical;
+                  font-family: inherit;
+                  font-size: 0.95rem;
+                  box-sizing: border-box;
+                  line-height: 1.5;
+                  color: #334155;
+                "
+              ></textarea>
+            </div>
+
+            <div
+              style="
+                border: 2px dashed #cbd5e1;
+                border-radius: 12px;
+                padding: 20px;
+                text-align: center;
+                background: #f1f5f9;
+                position: relative;
+              "
+            >
+              <input
+                type="file"
+                id="aktif-not-resim-input"
+                accept="image/*"
+                style="display: none"
+                onchange="resimSecildi(event)"
+              />
+
+              <div id="resim-yukleme-buton-alani">
+                <span style="font-size: 2rem; display: block; margin-bottom: 10px">📸</span>
+                <button
+                  onclick="document.getElementById('aktif-not-resim-input').click()"
+                  style="
+                    background: white;
+                    border: 1px solid var(--primary-blue, #2563eb);
+                    color: var(--primary-blue, #2563eb);
+                    padding: 8px 16px;
+                    border-radius: 8px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+                  "
+                >
+                  Tahta/Defter Görseli Ekle
+                </button>
+              </div>
+
+              <div id="resim-onizleme-alani" style="display: none; position: relative">
+                <img
+                  id="aktif-not-resim-onizleme"
+                  src=""
+                  style="
+                    max-width: 100%;
+                    max-height: 300px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    object-fit: contain;
+                  "
+                />
+                <button
+                  onclick="resmiSil()"
+                  style="
+                    position: absolute;
+                    top: -10px;
+                    right: -10px;
+                    background: #ef4444;
+                    color: white;
+                    border: none;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.4);
+                  "
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="modul-program" class="gorunum-bolumu gizli">
+        <div class="gorunum-baslik-alani">
+          <button class="ikon-btn" onclick="anaSayfayaDon()">Geri</button>
+          <h2>Yeni Ders Ekle</h2>
+        </div>
+
+        <div class="kart-govdesi" style="padding: 20px; border: 1px solid #1e293b; border-radius: 24px">
+          <div class="girdi-grubu">
+            <label>Hangi Gün?</label>
+            <select
+              id="prog-gun"
+              class="ozel-secim"
+              style="
+                width: 100%;
+                padding: 12px 16px;
+                border-radius: 12px;
+                border: 1px solid #e2e8f0;
+                background-color: #f8fafc;
+                font-size: 1rem;
+                color: #0f172a;
+                outline: none;
+                margin-bottom: 15px;
+              "
+            >
+              <option value="Pazartesi">Pazartesi</option>
+              <option value="Salı">Salı</option>
+              <option value="Çarşamba">Çarşamba</option>
+              <option value="Perşembe">Perşembe</option>
+              <option value="Cuma">Cuma</option>
+            </select>
+          </div>
+
+          <div class="girdi-grubu">
+            <label>Ders Adı</label>
+            <input type="text" id="prog-ders-adi" placeholder="Örn: Algoritma ve Programlama" />
+          </div>
+
+          <div style="display: flex; gap: 15px; margin-bottom: 15px">
+            <div class="girdi-grubu" style="flex: 1; margin-bottom: 0">
+              <label>Başlangıç</label>
+              <input type="time" id="prog-baslangic" style="width: 100%" />
+            </div>
+            <div class="girdi-grubu" style="flex: 1; margin-bottom: 0">
+              <label>Bitiş</label>
+              <input type="time" id="prog-bitis" style="width: 100%" />
+            </div>
+          </div>
+
+          <div class="girdi-grubu">
+            <label>Sınıf/Lab</label>
+            <input type="text" id="prog-sinif" placeholder="Örn: Bilgisayar Lab-1" />
+          </div>
+
+          <button class="ana-btn" onclick="programaDersEkle()" style="width: 100%; margin-top: 5px">
+            Kaydet ve Ana Sayfaya Dön
+          </button>
         </div>
       </section>
 

@@ -1,34 +1,48 @@
-# 🎓 UniMan - University Student Assistant (v1.1 Beta)
+# UniMan - Smart Student Assistant 🚀 (v1.3 Beta)
 
-A modern, clean, and entirely student-focused web application. It allows university students to easily track their target grades, attendance limits, and semester GPA (CGPA) all from a single screen with an elegant "Clean UI" design.
+UniMan is a modern web application with PWA and APK support, allowing university students to manage their academic lives and daily plans within a single "Premium" ecosystem.
 
-## ✨ Features
+Going beyond a basic grade calculator, it combines a class schedule, task calendar, smart notes, and focus tools into a sleek, "App Store" quality interface.
 
-- **📱 Modern UI & Slider Architecture:** Designed with Apple iOS standards, featuring a horizontal scroll (swipeable) giant card layout and smooth dot indicators.
-- **🧮 Target Grade Calculator:** Instantly calculates the exact score you need on your final exam to pass the course or reach your target grade, based on your midterm and extra assignment scores.
-- **📅 Attendance Tracker:** Keeps track of your remaining attendance rights and warns you with color codes (Green/Orange/Red) before you reach the critical limit.
-- **🎓 GPA (CGPA) Calculator:** Calculates your exact semester GPA out of 4.00 based on course credits (ECTS) and letter grades (AA, BA, etc.), helping you map out your academic goals.
-- **💾 Data Security (Offline Ready):** All data is securely stored in the browser's `LocalStorage`. It works seamlessly without an internet connection, ensuring your data is never lost.
+## 🌟 Legendary Features in v1.3 Beta
 
-## 🛠️ Tech Stack
+- **Universal Swipe-to-Delete:** Smoothly delete cards across all modules (Classes, Notes, Schedule, etc.) by **swiping right**, following Apple UX standards.
+- **📌 Smart Calendar & Task Manager:** With the dynamic calendar integrated into the main screen, track days with tasks via red dots and click to manage day-specific to-do lists.
+- **📝 Ecosystem-Integrated "My Notes" Module:** A smart system that converts courses from your class schedule into "Note Folders" with a single tap.
+- **📸 Visual Memory:** Ability to attach photos of the whiteboard or your notebook (via Base64) directly into your notes.
+- **Automatic Day Sync:** When the app opens, the calendar and class schedule automatically focus on the "current day".
 
-- **HTML5** (Semantic structure and SPA architecture)
-- **CSS3** (Soft UI, Flexbox, Scroll-Snap, Custom Animations)
-- **Vanilla JavaScript** (DOM Manipulation, LocalStorage Management)
+---
 
-## 🚀 Installation and Usage
+## 📦 Core Modules
 
-This project does not require any server or database setup. It runs directly in the browser.
+1. **🗓️ Class Schedule:** Save your weekly classes with time and classroom info. The app sharply displays today's schedule on the home screen every time you open it.
+2. **🧮 Midterm/Final Calculator:** Instantly calculate the score you need on your final exam to pass or reach your target grade, complete with dynamic colored badges.
+3. **📅 Attendance Tracker:** Track your remaining absence limits for each course using visual progress bars and warning colors.
+4. **🎓 GPA Calculator:** Quickly calculate your end-of-term weighted Grade Point Average (GPA) by entering course credits and letter grades.
+5. **⏱️ Focus (Pomodoro) Timer:** Maximize your productivity with scientific 25-minute work and 5-minute break cycles, featuring a circular SVG progress bar and audio notifications.
 
-1. Download or clone the repository to your local machine:
-   ```bash
-   git clone [https://github.com/KeremAKDOGAN81/UniMan.git](https://github.com/KeremAKDOGAN81/UniMan.git)
-   ```
-2. Open the `index.html` file in any modern web browser.
-3. **Pro Tip for Mobile Users:** Open the app in your mobile browser and select **"Add to Home Screen"** from the menu. It will behave exactly like a native mobile app (PWA experience).
+---
 
-## 👨‍💻 Developer
+## 🛠️ Technologies Used
 
-**Kerem Akdoğan** - _Computer Programming Student_
+- **Frontend:** HTML5, CSS3 (Modern Flexbox/Grid, CSS Variables), Vanilla JavaScript (ES6+).
+- **Data Management:** Browser-based `LocalStorage` (Your data stays completely safe and offline on your device).
+- **Mobile Integration (APK):** Fully compatible infrastructure to transform from a PWA into a Native Android app (APK) using **Capacitor & Android Studio**.
 
-_(This project is actively developed to provide practical software solutions for daily student needs.)_
+---
+
+## 📱 Installation and Usage
+
+This project runs entirely in the browser (Client-side). No backend server setup is required.
+
+1. Download or clone the project to your computer:
+   `git clone https://github.com/KeremAKDOGAN81/uniman.git`
+
+2. Open the `index.html` file inside the folder using any modern browser (Chrome, Safari, Edge).
+
+3. **For Mobile Experience:** After hosting your site (e.g., via GitHub Pages), open it on your phone and tap "Add to Home Screen". Alternatively, use **Capacitor** to build a direct APK file and install it like a native mobile app.
+
+---
+
+_Developer:_ **Kerem Akdoğan** _Sakarya University of Applied Sciences - Computer Programming_
